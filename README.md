@@ -21,13 +21,13 @@ ___________________
 Екран авторизації та реєстрації:
 ____________________
 
-https://github.com/BabinetsAnna/ANote/blob/main/screensh/authform.jpg?raw=true
+
 
 _____________________
 
 Екран відображення всіх нотаток: 
 
-![image](https://github.com/BabinetsAnna/ANote/assets/113774821/136ec05b-90ad-495c-855f-adee8ad7602c)
+![image](screensh/authform.jpg)
 
 _____________________
 
