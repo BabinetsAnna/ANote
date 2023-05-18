@@ -21,7 +21,7 @@ ___________________
 Екран авторизації та реєстрації:
 ____________________
 
-![Alt text]()
+![Alt text](https://github.com/BabinetsAnna/ANote/screensh/authform.jpg)
 
 _____________________
 
