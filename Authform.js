@@ -125,7 +125,7 @@ const AuthForm = ({ onSubmit, isRegistration, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.imgContainer}>
-      <Image source={require('./assets/icon.png')} style={styles.image} /></View>
+      <Image source={require('./assets/logo.png')} style={styles.image} /></View>
       <TextInput
         style={styles.input}
         placeholder="Username"
@@ -282,7 +282,7 @@ return (
     <AuthForm onSubmit={isRegistration ? handleRegistration : handleLogin} isRegistration={isRegistration} />
     <View style={styles.buttonContainer}>
   <TouchableOpacity
-    style={[styles.button, { backgroundColor: '#FFFFFF' }]}
+    style={[styles.button]}
     onPress={() => setIsRegistration(!isRegistration)}
   >
     <Text style={[styles.buttonText, { color: '#769CA8' }]}>
@@ -299,11 +299,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFF',
+    backgroundColor: '#F5E9DC',
   },
   container: {
     width: '75%',
-    maxWidth: 400,
+    maxWidth: 500,
     alignItems: 'center',
     paddingTop: '-20%',
   },
@@ -339,4 +339,5 @@ const styles = StyleSheet.create({
 });
 
 export default AuthScreen;
+
 
