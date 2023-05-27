@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, FlatList } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useIsFocused} from '@react-navigation/native';
 import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("db.notes");
@@ -9,6 +10,9 @@ const db = SQLite.openDatabase("db.notes");
 export default function Main({ route, navigation }) {
   const [notes, setNotes] = useState([]);
   const [userId, setUserId] = useState(null);
+  const isFocused = useIsFocused();
+ 
+
 
   const handleAddNote = () => {
     console.log('main add note: ', {userId});
@@ -24,7 +28,7 @@ export default function Main({ route, navigation }) {
     db.transaction((tx) => {
       tx.executeSql(
        'SELECT * FROM notes WHERE user_id = ? ORDER BY created_at DESC',
-        [userId],
+        [userId, navigation],
         (_, { rows: { _array } }) => {
           if (_array.length > 0) {
             setNotes(_array);
@@ -43,8 +47,10 @@ export default function Main({ route, navigation }) {
   }, [route.params]);
 
   useEffect(() => {
+    if (isFocused) {
     getNotes();
-  }, [userId]);
+    }
+  }, [userId, isFocused, navigation]);
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
@@ -101,7 +107,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5E9DC',
   },
   header:{
-    paddingTop: '12%',
+    paddingTop: 50,
     backgroundColor: '#A89787',
     paddingBottom: 10,
     marginBottom: 10,
